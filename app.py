@@ -1,5 +1,5 @@
 import streamlit as st
-
+from services.pdf_service import read_pdf
 st.set_page_config(
     page_title="Veritix AI Assistant",
     page_icon="🤖",
@@ -26,7 +26,23 @@ page = st.sidebar.selectbox(
 st.header(page)
 
 if page == "Dashboard":
+
     st.success("System Ready")
+
+    uploaded_file = st.file_uploader(
+        "Upload PDF",
+        type=["pdf"]
+    )
+
+    if uploaded_file:
+
+        text = read_pdf(uploaded_file)
+
+        st.success("PDF Loaded Successfully")
+
+        st.subheader("Preview")
+
+        st.write(text[:3000])
 
 elif page == "Chat":
     st.info("Coming Soon")
