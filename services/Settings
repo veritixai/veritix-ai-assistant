@@ -1,0 +1,12 @@
+page = st.sidebar.selectbox(
+    "Choose a tool",
+    [
+        "Dashboard",
+        "AI Video Generator",
+        "Settings",
+        "Chat",
+        "Summarizer",
+        "Email Writer",
+        "Reports"
+    ]
+)
